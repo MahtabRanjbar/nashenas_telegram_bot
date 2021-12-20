@@ -7,8 +7,7 @@ from telebot import custom_filters
 
 from src.bot import bot
 from src.filters import IsAdmin
-from src.utils.constants import keyboards, keys
-
+from src.constants import keyboards, keys
 
 
 class Bot:
@@ -54,7 +53,9 @@ class Bot:
             )
 
     def send_message(self, chat_id, text, reply_markup=None, emojize=True):
-
+        """ 
+        Send message to Telegram user
+        """
         if emojize:
             text = emoji.emojize(text, use_aliases=True)
 
@@ -63,4 +64,4 @@ class Bot:
 
 if __name__ == '__main__':
     logger.info('Bot statred')
-    bot = Bot(telebot=bot)
+    Bot(telebot=bot)
